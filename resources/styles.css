@@ -1,0 +1,350 @@
+@charset "UTF-8";
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 22px;
+  color: seashell;
+  background-color: #000000;
+  opacity: 0.9;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  border-bottom: 1px solid seashell;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 69px;
+}
+
+/**Logo styles*/
+.logo img {
+  height: 50px;
+  width: auto;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin-left: 50px;
+}
+
+nav ul li a {
+  text-decoration: underline;
+  color: seashell;
+  font-size: 22px;
+}
+
+/* Hamburger Menu (Hidden by Default) */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: seashell;
+  cursor: pointer;
+}
+
+.menu {
+  display: flex;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  header {
+    padding: 10px;
+  }
+
+  /* Show Hamburger Menu on Small Screens */
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu {
+    display: none; /* Hide menu by default */
+    flex-direction: column;
+    position: absolute;
+    top: 69px; /* Below header */
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    width: 100%; /* Full width on small devices */
+  }
+
+  /* Show Menu When Open */
+  .menu.open {
+    display: flex;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+    text-align: center;
+  }
+}
+
+/*---------------------------------------------first section------------------------------------*/
+.our-mission {
+  position: relative;
+  width: 100%;
+  height: 700px; /* Fixed height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Background image with fixed width */
+.our-mission::before {
+  content: "";
+  position: absolute;
+  width: 100%; /* Fixed width for the background image */
+  height: 100%;
+  background: url("./images/img-mission-background.jpg") center/cover no-repeat;
+  z-index: -1; /* Place the background image behind the text */
+}
+
+/* Content container styles */
+.our-mission div {
+  background-color: rgba(0, 0, 0, 0.8); /* Black overlay with transparency */
+  text-align: center;
+  padding: 20px;
+  width: 1200px;
+}
+
+/* Heading styles */
+.our-mission h2 {
+  font-size: 36px;
+  color: white;
+  margin: 0;
+}
+
+.our-mission h4 {
+  font-size: 20px;
+  color: white;
+  margin: 10px 0 0;
+  font-weight: normal;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .our-mission {
+    height: 500px; /* Reduce section height for smaller screens */
+  }
+
+  .our-mission::before {
+    width: 100%; /* Shrink the background image width */
+    background-size: cover; /* Maintain the image fill without losing quality */
+  }
+
+  .our-mission div {
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .our-mission {
+    height: 350px; /* Further reduce section height for very small screens */
+  }
+
+  .our-mission::before {
+    width: 100%; /* Further shrink background image width */
+    background-size: cover; /* Ensure the image remains sharp */
+  }
+
+  .our-mission div {
+    margin-top: 50px;
+  }
+}
+
+/*---------------------------------------SECOND SECTION-------------------------------------*/
+.product h2,
+h4 {
+  text-align: center;
+  color: white;
+}
+
+.product h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.product {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+}
+
+.product-item img {
+  width: 300px;
+  height: 200px;
+  border: none;
+}
+
+.product-item h4 {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*------------------------------------------------THIRD SECTION--------------------------------------------------*/
+/* Locations Section */
+.locations {
+  background-image: url("./images/img-locations-background.jpg");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.locations h2 {
+  font-size: 2.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 15px;
+}
+
+/* Container for location cards */
+.locations > div {
+  display: inline-block;
+  width: calc(
+    1000px / 3 - 40px
+  ); /* Ensures the total width including gaps is 1000px */
+  height: 300px;
+  margin: 20px 20px; /* 40px gap between items */
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Location card styles */
+.location h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  opacity: 1;
+}
+
+.location p {
+  font-size: 1rem;
+  margin: 5px 0;
+  padding: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .locations > div {
+    width: calc(100% - 40px); /* Full width minus gap */
+    margin: 20px auto;
+  }
+}
+
+/*-----------------------------------------------FOOTER------------------------------------------*/
+footer .contact {
+  background-color: black;
+  color: #f3f3f3;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  box-sizing: border-box;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space out top and bottom sections */
+  align-items: center;
+}
+
+/* Footer Title */
+footer h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  padding-bottom: 10px; /* Space between title and contact details */
+}
+
+/* Footer Contact Details */
+footer h5 {
+  font-size: 18px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Footer Copyright */
+footer .copyright {
+  font-size: 14px;
+  margin: 20px;
+  text-align: left;
+}
+
+/* Align Elements */
+footer div:first-child {
+  text-align: left;
+}
+
+footer div:last-child {
+  margin-top: 20px; /* Space between contact details and copyright */
+}
+
+/* Responsive Design: Center All Text on Smaller Screens */
+@media (max-width: 768px) {
+  footer h2 {
+    font-size: 22px;
+  }
+
+  footer h5 {
+    font-size: 16px;
+  }
+
+  footer .copyright {
+    margin-top: 10px;
+    text-align: center;
+  }
+}
+
+/* Responsive Design: Fine-tune for Very Small Screens */
+@media (max-width: 480px) {
+  footer h2 {
+    font-size: 20px;
+  }
+
+  footer h5 {
+    font-size: 14px;
+  }
+
+  footer .copyright {
+    font-size: 12px;
+    text-align: center;
+  }
+}
